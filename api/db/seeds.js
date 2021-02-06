@@ -24,3 +24,6 @@ main()
   .finally(async () => {
     await db.$disconnect()
   })
+
+
+// is used to populate your database with any data that needs to exist for your app to run at all (maybe an admin user or site configuration).
