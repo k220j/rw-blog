@@ -43,3 +43,20 @@ The src alias
 Notice that the import statement uses src/layouts/BlogLayout and not ../src/layouts/BlogLayout or ./src/layouts/BlogLayout.
 Being able to use just src is a convenience feature provided by Redwood: src is an alias to the src path in the current workspace.
 So if you're working in web then src points to web/src and in api it points to api/src.
+
+
+#Generator Naming Conventions
+
+You'll notice that some of the generated parts have plural names and some have singular. This convention is borrowed from Ruby on Rails which uses a more "human" naming convention: if you're dealing with multiple of something (like the list of all posts) it will be plural. If you're only dealing with a single something (like creating a new post) it will be singular. It sounds natural when speaking, too: "show me a list of all the posts" versus "I'm going to create a new post."
+
+As far as the generators are concerned:
+
+Services filenames are always plural.
+The methods in the services will be singular or plural depending on if they are expected to return multiple posts or a single post (posts vs. createPost).
+SDL filenames are plural.
+Pages that come with the scaffolds are plural or singular depending on whether they deal with many or one post. When using the page generator it will stick with whatever name you give the command.
+Layouts use the name you give them on the command line.
+Components and cells, like pages, will be plural or singular depending on context when created by the scaffold generator, otherwise they'll use the given name on the command line.
+Also note that it's the database table name part that's singular or plural, not the whole word. So it's PostsCell, not PostCells.
+
+You don't have to follow this convention once you start creating your own parts but we recommend doing so. The Ruby on Rails community has come to love this nomenclature even though many people complained about it when first exposed to it. Give it five minutes.

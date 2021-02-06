@@ -29,3 +29,30 @@ yarn rw db up
 This will apply the migration
 (which runs the commands against the database to create the changes we need)
 which results in creating a new table called Post with the fields we defined above.
+
+# GENERATE
+
+yarn rw g scaffold post
+
+
+So, Redwood just created all the pages, components and services necessary to perform all CRUD actions on our posts table. No need to open a database GUI or login through a terminal window and write SQL from scratch. Redwood calls these scaffolds. Pretty neat, right?
+
+Here's what happened when we ran that yarn rw g scaffold post command:
+
+Added an SDL file to define several GraphQL queries and mutations in api/src/graphql/posts.sdl.js
+Added a services file in api/src/services/posts/posts.js that makes the Prisma Client JS calls to get data in and out of the database
+Created several pages in web/src/pages:
+EditPostPage for editing a post
+NewPostPage for creating a new post
+PostPage for showing the detail of a post
+PostsPage for listing all the posts
+Created routes for those pages in web/src/Routes.js
+Created three cells in web/src/components:
+EditPostCell gets the post to edit in the database
+PostCell gets the post to display
+PostsCell gets all the posts
+Created four components also in web/src/components:
+NewPost displays the form for creating a new post
+Post displays a single post
+PostForm the actual form used by both the New and Edit components
+Posts displays the table of all posts
