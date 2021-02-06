@@ -60,3 +60,15 @@ Components and cells, like pages, will be plural or singular depending on contex
 Also note that it's the database table name part that's singular or plural, not the whole word. So it's PostsCell, not PostCells.
 
 You don't have to follow this convention once you start creating your own parts but we recommend doing so. The Ruby on Rails community has come to love this nomenclature even though many people complained about it when first exposed to it. Give it five minutes.
+
+
+#Summary
+To sum up, what did we actually do to get this far?
+
+Generate the homepage
+Generate the blog layout
+Define the database schema
+Run migrations to update the database and create a table
+Scaffold a CRUD interface to the database table
+Create a cell to load the data and take care of loading/empty/failure/success states
+Add the cell to the page
